@@ -1,0 +1,52 @@
+{
+  "host": "localhost",
+  "port": 8080,
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "mongodb": "mongodb://localhost:27017/kadata",
+  "authentication": {
+    "secret": "768cc0a7221048b3c7692548a1b9f7a9f86f950d91ff5734b597af120b22b77fdc3c0d0931bebc32aaff4cd67fecaa2719ba3927f3b72aab08645dcaa4cfd22b37c1fb07f2218cabafe44b129a46c5ad4d51f422d3e8c4f099b31a8badf722f413a679d535146307fa016c286f09f9bd905c119b22bacc1082d50aa19743879512ff638630de0ebbd240b956db3c00e37fe77b231eb6fc772b60e3625ac74ee66ae0a40bbf367c8aeb65f4eb68a0b7e2391c53122a0a478edc125405e6163f49e3d8b470b0f3acb4a38d25eec6418f5b327ba8cd6954e398b97babe41f88a0e6841768103aeb91ff67c8668c5ff7070323d4bef84efacdb055fad0ec992d399f",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "user",
+    "jwt": {
+      "header": {
+        "type": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    },
+    "google": {
+      "clientID": "ffff",
+      "clientSecret": "ffff",
+      "successRedirect": "/",
+      "scope": [
+        "profile openid email"
+      ]
+    },
+    "cookie": {
+      "enabled": true,
+      "name": "feathers-jwt",
+      "httpOnly": false,
+      "secure": false
+    }
+  },
+  "logger": {
+    "level": "debug",
+    "maxFileSize": 5242880,
+    "logFolder": "logs"
+  }
+}
